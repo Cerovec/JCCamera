@@ -102,10 +102,12 @@
 
 - (void)appplicationWillEnterForeground:(NSNotification*)note {
     NSLog(@"appplicationWillEnterForeground!");
+    [self startCaptureSession];
 }
 
 - (void)applicationDidEnterBackgroundNotification:(NSNotification*)note {
     NSLog(@"applicationDidEnterBackgroundNotification!");
+    [self stopCaptureSession];
 }
 
 - (void)applicationWillTerminateNotification:(NSNotification*)note {
