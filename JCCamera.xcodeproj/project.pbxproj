@@ -1,0 +1,536 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1819B6F51B7745150002325E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1819B6F41B7745150002325E /* main.m */; };
+		1819B6F81B7745150002325E /* JCAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1819B6F71B7745150002325E /* JCAppDelegate.m */; };
+		1819B6FB1B7745150002325E /* JCCameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1819B6FA1B7745150002325E /* JCCameraViewController.m */; };
+		1819B6FE1B7745150002325E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1819B6FC1B7745150002325E /* Main.storyboard */; };
+		1819B7001B7745150002325E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1819B6FF1B7745150002325E /* Assets.xcassets */; };
+		1819B7031B7745150002325E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1819B7011B7745150002325E /* LaunchScreen.storyboard */; };
+		1819B70E1B7745150002325E /* JCCameraTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1819B70D1B7745150002325E /* JCCameraTests.m */; };
+		1819B7191B7745150002325E /* JCCameraUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1819B7181B7745150002325E /* JCCameraUITests.m */; };
+		1819B7281B7755C80002325E /* JCRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1819B7271B7755C80002325E /* JCRootViewController.m */; };
+		18A36CE61B780298004374DA /* JCCameraView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A36CE51B780298004374DA /* JCCameraView.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		1819B70A1B7745150002325E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1819B6E81B7745150002325E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1819B6EF1B7745150002325E;
+			remoteInfo = "Camera-Sample";
+		};
+		1819B7151B7745150002325E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1819B6E81B7745150002325E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1819B6EF1B7745150002325E;
+			remoteInfo = "Camera-Sample";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		1819B6F01B7745150002325E /* JCCamera.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JCCamera.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1819B6F41B7745150002325E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		1819B6F61B7745150002325E /* JCAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JCAppDelegate.h; sourceTree = "<group>"; };
+		1819B6F71B7745150002325E /* JCAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JCAppDelegate.m; sourceTree = "<group>"; };
+		1819B6F91B7745150002325E /* JCCameraViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JCCameraViewController.h; sourceTree = "<group>"; };
+		1819B6FA1B7745150002325E /* JCCameraViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JCCameraViewController.m; sourceTree = "<group>"; };
+		1819B6FD1B7745150002325E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		1819B6FF1B7745150002325E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		1819B7021B7745150002325E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		1819B7041B7745150002325E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1819B7091B7745150002325E /* JCCamera.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JCCamera.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		1819B70D1B7745150002325E /* JCCameraTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JCCameraTests.m; sourceTree = "<group>"; };
+		1819B70F1B7745150002325E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1819B7141B7745150002325E /* JCCamera.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JCCamera.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		1819B7181B7745150002325E /* JCCameraUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JCCameraUITests.m; sourceTree = "<group>"; };
+		1819B71A1B7745150002325E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1819B7261B7755C80002325E /* JCRootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JCRootViewController.h; sourceTree = "<group>"; };
+		1819B7271B7755C80002325E /* JCRootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JCRootViewController.m; sourceTree = "<group>"; };
+		18A36CE41B780298004374DA /* JCCameraView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JCCameraView.h; sourceTree = "<group>"; };
+		18A36CE51B780298004374DA /* JCCameraView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JCCameraView.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1819B6ED1B7745150002325E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1819B7061B7745150002325E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1819B7111B7745150002325E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1819B6E71B7745150002325E = {
+			isa = PBXGroup;
+			children = (
+				1819B6F21B7745150002325E /* JCCamera */,
+				1819B70C1B7745150002325E /* JCCameraTests */,
+				1819B7171B7745150002325E /* JCCameraUITests */,
+				1819B6F11B7745150002325E /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		1819B6F11B7745150002325E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1819B6F01B7745150002325E /* JCCamera.app */,
+				1819B7091B7745150002325E /* JCCamera.xctest */,
+				1819B7141B7745150002325E /* JCCamera.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		1819B6F21B7745150002325E /* JCCamera */ = {
+			isa = PBXGroup;
+			children = (
+				1819B6F61B7745150002325E /* JCAppDelegate.h */,
+				1819B6F71B7745150002325E /* JCAppDelegate.m */,
+				1819B6F91B7745150002325E /* JCCameraViewController.h */,
+				1819B6FA1B7745150002325E /* JCCameraViewController.m */,
+				18A36CE41B780298004374DA /* JCCameraView.h */,
+				18A36CE51B780298004374DA /* JCCameraView.m */,
+				1819B7261B7755C80002325E /* JCRootViewController.h */,
+				1819B7271B7755C80002325E /* JCRootViewController.m */,
+				1819B6FC1B7745150002325E /* Main.storyboard */,
+				1819B6FF1B7745150002325E /* Assets.xcassets */,
+				1819B7011B7745150002325E /* LaunchScreen.storyboard */,
+				1819B7041B7745150002325E /* Info.plist */,
+				1819B6F31B7745150002325E /* Supporting Files */,
+			);
+			path = JCCamera;
+			sourceTree = "<group>";
+		};
+		1819B6F31B7745150002325E /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				1819B6F41B7745150002325E /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		1819B70C1B7745150002325E /* JCCameraTests */ = {
+			isa = PBXGroup;
+			children = (
+				1819B70D1B7745150002325E /* JCCameraTests.m */,
+				1819B70F1B7745150002325E /* Info.plist */,
+			);
+			path = JCCameraTests;
+			sourceTree = "<group>";
+		};
+		1819B7171B7745150002325E /* JCCameraUITests */ = {
+			isa = PBXGroup;
+			children = (
+				1819B7181B7745150002325E /* JCCameraUITests.m */,
+				1819B71A1B7745150002325E /* Info.plist */,
+			);
+			path = JCCameraUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		1819B6EF1B7745150002325E /* JCCamera */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1819B71D1B7745150002325E /* Build configuration list for PBXNativeTarget "JCCamera" */;
+			buildPhases = (
+				1819B6EC1B7745150002325E /* Sources */,
+				1819B6ED1B7745150002325E /* Frameworks */,
+				1819B6EE1B7745150002325E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = JCCamera;
+			productName = "Camera-Sample";
+			productReference = 1819B6F01B7745150002325E /* JCCamera.app */;
+			productType = "com.apple.product-type.application";
+		};
+		1819B7081B7745150002325E /* JCCameraTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1819B7201B7745150002325E /* Build configuration list for PBXNativeTarget "JCCameraTests" */;
+			buildPhases = (
+				1819B7051B7745150002325E /* Sources */,
+				1819B7061B7745150002325E /* Frameworks */,
+				1819B7071B7745150002325E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				1819B70B1B7745150002325E /* PBXTargetDependency */,
+			);
+			name = JCCameraTests;
+			productName = "Camera-SampleTests";
+			productReference = 1819B7091B7745150002325E /* JCCamera.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		1819B7131B7745150002325E /* JCCameraUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1819B7231B7745150002325E /* Build configuration list for PBXNativeTarget "JCCameraUITests" */;
+			buildPhases = (
+				1819B7101B7745150002325E /* Sources */,
+				1819B7111B7745150002325E /* Frameworks */,
+				1819B7121B7745150002325E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				1819B7161B7745150002325E /* PBXTargetDependency */,
+			);
+			name = JCCameraUITests;
+			productName = "Camera-SampleUITests";
+			productReference = 1819B7141B7745150002325E /* JCCamera.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		1819B6E81B7745150002325E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0700;
+				ORGANIZATIONNAME = MicroBlink;
+				TargetAttributes = {
+					1819B6EF1B7745150002325E = {
+						CreatedOnToolsVersion = 7.0;
+					};
+					1819B7081B7745150002325E = {
+						CreatedOnToolsVersion = 7.0;
+						TestTargetID = 1819B6EF1B7745150002325E;
+					};
+					1819B7131B7745150002325E = {
+						CreatedOnToolsVersion = 7.0;
+						TestTargetID = 1819B6EF1B7745150002325E;
+					};
+				};
+			};
+			buildConfigurationList = 1819B6EB1B7745150002325E /* Build configuration list for PBXProject "JCCamera" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 1819B6E71B7745150002325E;
+			productRefGroup = 1819B6F11B7745150002325E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				1819B6EF1B7745150002325E /* JCCamera */,
+				1819B7081B7745150002325E /* JCCameraTests */,
+				1819B7131B7745150002325E /* JCCameraUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		1819B6EE1B7745150002325E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1819B7031B7745150002325E /* LaunchScreen.storyboard in Resources */,
+				1819B7001B7745150002325E /* Assets.xcassets in Resources */,
+				1819B6FE1B7745150002325E /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1819B7071B7745150002325E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1819B7121B7745150002325E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1819B6EC1B7745150002325E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				18A36CE61B780298004374DA /* JCCameraView.m in Sources */,
+				1819B6FB1B7745150002325E /* JCCameraViewController.m in Sources */,
+				1819B7281B7755C80002325E /* JCRootViewController.m in Sources */,
+				1819B6F81B7745150002325E /* JCAppDelegate.m in Sources */,
+				1819B6F51B7745150002325E /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1819B7051B7745150002325E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1819B70E1B7745150002325E /* JCCameraTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1819B7101B7745150002325E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1819B7191B7745150002325E /* JCCameraUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		1819B70B1B7745150002325E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1819B6EF1B7745150002325E /* JCCamera */;
+			targetProxy = 1819B70A1B7745150002325E /* PBXContainerItemProxy */;
+		};
+		1819B7161B7745150002325E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1819B6EF1B7745150002325E /* JCCamera */;
+			targetProxy = 1819B7151B7745150002325E /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		1819B6FC1B7745150002325E /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1819B6FD1B7745150002325E /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		1819B7011B7745150002325E /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1819B7021B7745150002325E /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		1819B71B1B7745150002325E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		1819B71C1B7745150002325E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		1819B71E1B7745150002325E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = JCCamera/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.microblink.JCCamera;
+				PRODUCT_NAME = JCCamera;
+			};
+			name = Debug;
+		};
+		1819B71F1B7745150002325E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = JCCamera/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.microblink.JCCamera;
+				PRODUCT_NAME = JCCamera;
+			};
+			name = Release;
+		};
+		1819B7211B7745150002325E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = JCCamera/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.microblink.JCCameraTests;
+				PRODUCT_NAME = JCCamera;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/JCCamera.app/JCCamera";
+			};
+			name = Debug;
+		};
+		1819B7221B7745150002325E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = JCCamera/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.microblink.JCCameraTests;
+				PRODUCT_NAME = JCCamera;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/JCCamera.app/JCCamera";
+			};
+			name = Release;
+		};
+		1819B7241B7745150002325E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = JCCameraUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.microblink.JCCameraUITests;
+				PRODUCT_NAME = JCCamera;
+				TEST_TARGET_NAME = JCCamera;
+				USES_XCTRUNNER = YES;
+			};
+			name = Debug;
+		};
+		1819B7251B7745150002325E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = JCCameraUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.microblink.JCCameraUITests;
+				PRODUCT_NAME = JCCamera;
+				TEST_TARGET_NAME = JCCamera;
+				USES_XCTRUNNER = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1819B6EB1B7745150002325E /* Build configuration list for PBXProject "JCCamera" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1819B71B1B7745150002325E /* Debug */,
+				1819B71C1B7745150002325E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1819B71D1B7745150002325E /* Build configuration list for PBXNativeTarget "JCCamera" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1819B71E1B7745150002325E /* Debug */,
+				1819B71F1B7745150002325E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1819B7201B7745150002325E /* Build configuration list for PBXNativeTarget "JCCameraTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1819B7211B7745150002325E /* Debug */,
+				1819B7221B7745150002325E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1819B7231B7745150002325E /* Build configuration list for PBXNativeTarget "JCCameraUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1819B7241B7745150002325E /* Debug */,
+				1819B7251B7745150002325E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 1819B6E81B7745150002325E /* Project object */;
+}
