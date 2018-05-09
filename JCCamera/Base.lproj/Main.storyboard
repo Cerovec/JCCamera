@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -69,7 +69,7 @@
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6XW-GI-8hu">
-                                <rect key="frame" x="16" y="20" width="55" height="39"/>
+                                <rect key="frame" x="16" y="30" width="55" height="39"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <state key="normal" title="Close">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -78,27 +78,19 @@
                                     <action selector="closeCamera:" destination="CMc-Yo-0Wv" eventType="touchUpInside" id="utM-rS-ZEA"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Camera Paused" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="poJ-gp-dP4">
-                                <rect key="frame" x="96" y="317" width="183" height="33"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="27"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="xUR-Z0-lPx" firstAttribute="centerY" secondItem="9SF-tW-9QK" secondAttribute="centerY" id="3qN-vH-o8t"/>
                             <constraint firstItem="xUR-Z0-lPx" firstAttribute="height" secondItem="9SF-tW-9QK" secondAttribute="height" id="4pt-1Y-S3Y"/>
-                            <constraint firstItem="poJ-gp-dP4" firstAttribute="centerX" secondItem="9SF-tW-9QK" secondAttribute="centerX" id="E87-dh-akM"/>
-                            <constraint firstItem="poJ-gp-dP4" firstAttribute="centerY" secondItem="9SF-tW-9QK" secondAttribute="centerY" id="Lfy-Re-rTu"/>
-                            <constraint firstAttribute="leadingMargin" secondItem="6XW-GI-8hu" secondAttribute="leading" id="Nue-Ry-6v4"/>
-                            <constraint firstItem="6XW-GI-8hu" firstAttribute="top" secondItem="ECi-as-kxg" secondAttribute="bottom" id="RVP-Yl-tpl"/>
+                            <constraint firstItem="6XW-GI-8hu" firstAttribute="leading" secondItem="9SF-tW-9QK" secondAttribute="leadingMargin" id="Nue-Ry-6v4"/>
                             <constraint firstItem="xUR-Z0-lPx" firstAttribute="centerX" secondItem="9SF-tW-9QK" secondAttribute="centerX" id="Swr-uE-WJn"/>
+                            <constraint firstItem="6XW-GI-8hu" firstAttribute="top" secondItem="ECi-as-kxg" secondAttribute="bottom" constant="10" id="hHp-AD-D81"/>
+                            <constraint firstItem="6XW-GI-8hu" firstAttribute="trailing" relation="lessThanOrEqual" secondItem="9SF-tW-9QK" secondAttribute="trailing" constant="-304" id="kq9-cd-ozO"/>
                             <constraint firstItem="xUR-Z0-lPx" firstAttribute="width" secondItem="9SF-tW-9QK" secondAttribute="width" id="rZV-0b-ckQ"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="cameraPausedLabel" destination="poJ-gp-dP4" id="ssi-C1-qT8"/>
                         <outlet property="cameraView" destination="xUR-Z0-lPx" id="BHB-CN-Vjv"/>
                     </connections>
                 </viewController>

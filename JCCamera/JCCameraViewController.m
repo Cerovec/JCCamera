@@ -10,15 +10,50 @@
 #import "JCCameraView.h"
 #import <AVFoundation/AVFoundation.h>
 
-@interface JCCameraViewController () <AVCaptureAudioDataOutputSampleBufferDelegate>
+@interface JCCameraViewController () <AVCaptureVideoDataOutputSampleBufferDelegate>
 
 @property (weak, nonatomic) IBOutlet JCCameraView *cameraView;
 
 @property (nonatomic, strong) AVCaptureSession *captureSession;
 
+@property (nonatomic) dispatch_queue_t sessionQueue;
+
+@property (nonatomic) dispatch_queue_t processingQueue;
+
+- (IBAction)closeCamera:(id)sender;
+
 @end
 
 @implementation JCCameraViewController
+
+#pragma mark - View Controller Lifecycle
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+
+    self.sessionQueue = dispatch_queue_create("session queue", DISPATCH_QUEUE_SERIAL);
+    self.processingQueue = dispatch_queue_create("processing queue", DISPATCH_QUEUE_SERIAL);
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self addNotificationObserver];
+}
+
+- (void)viewDidAppear:(BOOL)animate {
+    [super viewDidAppear:animate];
+    [self startCaptureSession];
+};
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    [self stopCaptureSession];
+}
+
+- (void)viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:animated];
+    [self removeNotificationObserver];
+}
 
 - (void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator {
     [super viewWillTransitionToSize:size withTransitionCoordinator:coordinator];
@@ -31,21 +66,9 @@
     }
 }
 
-- (IBAction)closeCamera:(id)sender {
-    [self dismissViewControllerAnimated:YES completion:nil];
-}
-
-- (void)viewDidAppear:(BOOL)animate {
-    [super viewDidAppear:animate];
-    [self startCaptureSession];
-};
+#pragma mark - Notifications
 
 - (void)addNotificationObserver {
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(appplicationWillResignActive:)
-                                                 name:UIApplicationWillResignActiveNotification
-                                               object:nil];
-
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(appplicationWillEnterForeground:)
                                                  name:UIApplicationWillEnterForegroundNotification
@@ -55,49 +78,10 @@
                                              selector:@selector(applicationDidEnterBackgroundNotification:)
                                                  name:UIApplicationDidEnterBackgroundNotification
                                                object:nil];
-
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(applicationWillTerminateNotification:)
-                                                 name:UIApplicationWillTerminateNotification
-                                               object:nil];
-
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(captureSessionDidStartRunningNotification:)
-                                                 name:AVCaptureSessionDidStartRunningNotification
-                                               object:nil];
-
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(captureSessionDidStopRunningNotification:)
-                                                 name:AVCaptureSessionDidStopRunningNotification
-                                               object:nil];
-
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(captureSessionRuntimeErrorNotification:)
-                                                 name:AVCaptureSessionRuntimeErrorNotification
-                                               object:nil];
 }
 
 - (void)removeNotificationObserver {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
-}
-
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    [self addNotificationObserver];
-}
-
-- (void)viewWillDisappear:(BOOL)animated {
-    [super viewWillDisappear:animated];
-    [self stopCaptureSession];
-}
-
-- (void)viewDidDisappear:(BOOL)animated {
-    [super viewDidDisappear:animated];
-    [self removeNotificationObserver];
-}
-
-- (void)appplicationWillResignActive:(NSNotification*)note {
-    NSLog(@"Will resign active!");
 }
 
 - (void)appplicationWillEnterForeground:(NSNotification*)note {
@@ -110,67 +94,73 @@
     [self stopCaptureSession];
 }
 
-- (void)applicationWillTerminateNotification:(NSNotification*)note {
-    NSLog(@"applicationWillTerminateNotification!");
+#pragma mark - Button handlers
+
+- (IBAction)closeCamera:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
-- (void)captureSessionDidStartRunningNotification:(NSNotification*)note {
-    NSLog(@"captureSessionDidStartRunningNotification!");
+#pragma mark - Status bar appearance
 
-    [UIView animateWithDuration:0.3 animations:^{
-        self.cameraPausedLabel.alpha = 0.0;
-    }];
+- (UIStatusBarStyle)preferredStatusBarStyle {
+    return UIStatusBarStyleLightContent;
 }
-
-- (void)captureSessionDidStopRunningNotification:(NSNotification*)note {
-    NSLog(@"captureSessionDidStopRunningNotification!");
-
-    [UIView animateWithDuration:0.3 animations:^{
-        self.cameraPausedLabel.alpha = 1.0;
-    }];
-}
-
-- (void)captureSessionRuntimeErrorNotification:(NSNotification*)note {
-    NSLog(@"captureSessionRuntimeErrorNotification!");
-}
-
 
 - (void)startCaptureSession {
 
-    // Create session
-    self.captureSession = [[AVCaptureSession alloc] init];
-    self.captureSession.sessionPreset = AVCaptureSessionPresetHigh;
+    dispatch_async(self.sessionQueue, ^{
 
-    // Init the device inputs
-    AVCaptureDeviceInput *videoInput = [[AVCaptureDeviceInput alloc] initWithDevice:[self cameraWithPosition:AVCaptureDevicePositionBack]
-                                                                              error:nil];
-    [self.captureSession addInput:videoInput];
+        // Create session
+        self.captureSession = [[AVCaptureSession alloc] init];
+        self.captureSession.sessionPreset = AVCaptureSessionPresetHigh;
 
-    // setup video data output
-    AVCaptureVideoDataOutput *videoDataOutput = [[AVCaptureVideoDataOutput alloc] init];
-    [videoDataOutput setVideoSettings:[NSDictionary dictionaryWithObject:[NSNumber numberWithInt:kCVPixelFormatType_32BGRA] forKey:(id)kCVPixelBufferPixelFormatTypeKey]];
-    [self.captureSession addOutput:videoDataOutput];
+        // Init the device inputs
+        AVCaptureDeviceInput *videoInput = [[AVCaptureDeviceInput alloc] initWithDevice:[self cameraWithPosition:AVCaptureDevicePositionBack]
+                                                                                  error:nil];
+        [self.captureSession addInput:videoInput];
 
-    // Setup the preview view.
-    self.cameraView.session = self.captureSession;
+        // setup video data output
+        AVCaptureVideoDataOutput *videoDataOutput = [[AVCaptureVideoDataOutput alloc] init];
+        [videoDataOutput setVideoSettings:[NSDictionary dictionaryWithObject:[NSNumber numberWithInt:kCVPixelFormatType_32BGRA] forKey:(id)kCVPixelBufferPixelFormatTypeKey]];
+        [videoDataOutput setSampleBufferDelegate:self queue:self.processingQueue];
+        videoDataOutput.alwaysDiscardsLateVideoFrames = YES;
+        [self.captureSession addOutput:videoDataOutput];
 
-    [self.captureSession startRunning];
+        [self.captureSession startRunning];
+
+        dispatch_async(dispatch_get_main_queue(), ^{
+            // Setup the preview view.
+            self.cameraView.session = self.captureSession;
+        });
+    });
 }
 
 - (void)stopCaptureSession {
-    [self.captureSession stopRunning];
-    self.captureSession = nil;
+    dispatch_async(self.sessionQueue, ^{
+        [self.captureSession stopRunning];
+        self.captureSession = nil;
+    });
 }
 
 // Find a camera with the specificed AVCaptureDevicePosition, returning nil if one is not found
-- (AVCaptureDevice *)cameraWithPosition:(AVCaptureDevicePosition) position {
-    NSArray *devices = [AVCaptureDevice devicesWithMediaType:AVMediaTypeVideo];
+- (AVCaptureDevice *)cameraWithPosition:(AVCaptureDevicePosition)position {
+    AVCaptureDeviceDiscoverySession *captureDeviceDiscoverySession = [AVCaptureDeviceDiscoverySession discoverySessionWithDeviceTypes:@[AVCaptureDeviceTypeBuiltInWideAngleCamera]
+                                                                                                                            mediaType:AVMediaTypeVideo
+                                                                                                                             position:position];
+    NSArray *devices = [captureDeviceDiscoverySession devices];
     for (AVCaptureDevice *device in devices) {
         if ([device position] == position) {
             return device;
         }
     }
     return nil;
+}
+
+#pragma mark - AVCaptureVideoDataOutputSampleBufferDelegate
+
+- (void)captureOutput:(AVCaptureOutput *)output didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer fromConnection:(AVCaptureConnection *)connection {
+
+    NSLog(@"Frame!");
 }
 
 @end
